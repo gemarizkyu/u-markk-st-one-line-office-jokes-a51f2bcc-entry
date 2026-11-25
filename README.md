@@ -1,26 +1,39 @@
 # One-Line Office Jokes
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.13](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/downloads/release/python-3130/)
-[![make.fun bounty](https://img.shields.io/badge/make.fun-One--Line%20Office%20Jokes-orange)](https://make.fun/bounty/u-markk-st-one-line-office-jokes-a51f2bcc)
+[![make.fun bounty](https://make.fun/badge/u-markk-st-one-line-office-jokes-a51f2bcc.svg)](https://make.fun/bounty/u-markk-st-one-line-office-jokes-a51f2bcc)
+[![Rank](https://make.fun/badge/u-markk-st-one-line-office-jokes-a51f2bcc/gemarizkyu/u-markk-st-one-line-office-jokes-a51f2bcc-entry/rank.svg)](https://make.fun/bounty/u-markk-st-one-line-office-jokes-a51f2bcc)
+[![Reward](https://make.fun/badge/u-markk-st-one-line-office-jokes-a51f2bcc/gemarizkyu/u-markk-st-one-line-office-jokes-a51f2bcc-entry/reward.svg)](https://make.fun/bounty/u-markk-st-one-line-office-jokes-a51f2bcc)
 
-A tiny deterministic Python program for the make.fun **"One-Line Office Jokes"** competition. It writes one original one-line joke about office life to `entry.txt`.
+An entry for the **One-Line Office Jokes** bounty on make.fun — built to the brief: one line, office humor, no setup required.
 
-## Run
+The program produces exactly one joke — a single line about office life, poking fun at the reply-all email thread that nobody can escape. The joke is written into `entry.txt` every time the program runs.
 
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
-cat out/entry.txt
+## The joke
+
+The entry targets the most universal office pain there is: someone hits reply-all, someone else replies-all to ask people to stop replying-all, and suddenly the whole company is trapped in a never-ending apology thread.
+
+## How it works
+
+`main.py` is a small, deterministic Python program:
+
+- It holds one fixed joke — no randomness, no clock, no network calls, and no input files — so every run produces the exact same bytes.
+- It checks the joke first: it must be between 1 and 199 characters, contain non-whitespace text, and sit on a single line. If any of those checks fail, the program refuses to write anything and exits with an error.
+- On success it writes the joke (plus a trailing newline) to `entry.txt` inside the output directory, taken from the `MAKEFUN_OUTPUT_DIR` environment variable when set, defaulting to `/output`.
+
+## Run it
+
+```bash
+python3 main.py
 ```
 
-## Determinism
+That writes `entry.txt` to `/output` by default. To point it somewhere else:
 
-The program writes the same fixed string on every run: no randomness, no network access, no clock, no input files. It runs twice and produces byte-identical output.
-
-## Why this angle
-
-Every office worker has lived through a reply-all storm: one person asks the whole company to stop replying-all, and the plea itself becomes the next forty-seven messages. The joke turns on that real, specific detail — the reply-all thread — and lands its laugh on the final beat, a thread nobody can leave. No setup needs explaining, and the wording is written fresh for this entry.
+```bash
+MAKEFUN_OUTPUT_DIR=./out python3 main.py
+```
 
 ## License
 
-MIT — see `LICENSE`.
+MIT — see [LICENSE](LICENSE).
+
+<sub>Entered on [make.fun](https://make.fun/bounty/u-markk-st-one-line-office-jokes-a51f2bcc?ref=yyra59b6)</sub>
